@@ -8,26 +8,26 @@ import { color, text } from "../../styles/theme";
 import { songs } from "../../db/songs";
 
 export default function Menu() {
-  const [currentTab, setCurrentTab] = useState("Songs");
+  const [currentTab, setCurrentTab] = useState("Library");
 
   const changeTab = () => {
-    if (currentTab === "Songs") setCurrentTab("Favorites");
-    if (currentTab === "Favorites") setCurrentTab("Songs");
+    if (currentTab === "Library") setCurrentTab("Favorites");
+    if (currentTab === "Favorites") setCurrentTab("Library");
   };
 
   return (
     <Container>
       {/* Header Section */}
       <Header>
-        {currentTab === "Songs" && (
+        {currentTab === "Library" && (
           <>
-            <ActiveTab onClick={changeTab}>Songs</ActiveTab>
+            <ActiveTab onClick={changeTab}>Library</ActiveTab>
             <Tab onClick={changeTab}>Favorites</Tab>
           </>
         )}
         {currentTab === "Favorites" && (
           <>
-            <Tab onClick={changeTab}>Songs</Tab>
+            <Tab onClick={changeTab}>Library</Tab>
             <ActiveTab onClick={changeTab}>Favorites</ActiveTab>
           </>
         )}
@@ -67,7 +67,7 @@ const Header = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `;
 const ActiveTab = styled.p`
   color: ${color["100"]};
