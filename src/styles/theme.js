@@ -1,13 +1,16 @@
 export const color = {
   bg: "#1F1F27",
   alt: "#191921",
-  darkText: "#303038",
-  mediumText: "#8D8C92",
-  text: "white",
+  100: "#f1f1f7f6",
+  200: "#c6c5ca",
+  300: "#44444e",
+  test: "red",
 };
 
 export const text = {
-  sm: "12px",
+  xs: "12px",
+  sm: "14px",
   md: "16px",
   lg: "24px",
+  xl: "28px",
 };

@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+// components
 import Song from "./Song";
+import MinPlayer from "../MinPlayer/MinPlayer";
+// other imports
 import { color, text } from "../../styles/theme";
 import { songs } from "../../db/songs";
 
 export default function Menu() {
+  const [currentTab, setCurrentTab] = useState("Songs");
+
+  const changeTab = () => {
+    if (currentTab === "Songs") setCurrentTab("Favorites");
+    if (currentTab === "Favorites") setCurrentTab("Songs");
+  };
+
   return (
     <Container>
       {/* Header Section */}
       <Header>
-        <ActiveTab>Songs</ActiveTab>
-        <Tab>Favorite</Tab>
+        {currentTab === "Songs" && (
+          <>
+            <ActiveTab onClick={changeTab}>Songs</ActiveTab>
+            <Tab onClick={changeTab}>Favorites</Tab>
+          </>
+        )}
+        {currentTab === "Favorites" && (
+          <>
+            <Tab onClick={changeTab}>Songs</Tab>
+            <ActiveTab onClick={changeTab}>Favorites</ActiveTab>
+          </>
+        )}
       </Header>
 
       {/* Songs Section */}
@@ -25,6 +45,7 @@ export default function Menu() {
           />
         ))}
       </Songs>
+      <MinPlayer />
     </Container>
   );
 }
@@ -36,7 +57,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 2rem;
   background: ${color.alt};
 `;
 
@@ -49,13 +70,17 @@ const Header = styled.div`
   margin-bottom: 1rem;
 `;
 const ActiveTab = styled.p`
-  color: ${color.text};
-  font-size: ${text.lg};
-  margin-right: 1rem;
+  color: ${color["100"]};
+  font-size: 22px;
+
+  margin-right: 2rem;
+  cursor: pointer;
 `;
 const Tab = styled.p`
-  color: ${color.mediumText};
+  color: ${color["300"]};
   font-size: ${text.md};
+  margin-right: 2rem;
+  cursor: pointer;
 `;
 
 // - song elements

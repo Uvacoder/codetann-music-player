@@ -23,7 +23,6 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin-bottom: 1rem;
 `;
 
@@ -43,12 +42,12 @@ const Info = styled.div`
 `;
 
 const Title = styled.p`
-  color: ${color.text};
+  color: ${color["200"]};
   font-size: ${text.md};
   margin-bottom: 0.5rem;
 `;
 
 const Artist = styled.p`
-  color: ${color.darkText};
+  color: ${color["300"]};
   font-size: ${text.sm};
 `;
