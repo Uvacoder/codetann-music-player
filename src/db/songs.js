@@ -1,4 +1,4 @@
-const songs = [
+export const songs = [
   {
     artist: "Toonorth",
     title: "Dawn",

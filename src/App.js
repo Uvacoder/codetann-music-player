@@ -1,13 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import { color } from "./styles/theme";
+// components
+import Menu from "./components/Menu/Menu";
 // hooks
 import useWidth from "./hooks/useWidth";
 
 function App() {
   const width = useWidth();
 
-  return <Application></Application>;
+  return (
+    <Application>
+      <Menu />
+    </Application>
+  );
 }
 
 export default App;
