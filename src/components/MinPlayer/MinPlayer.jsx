@@ -1,14 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { color, text } from "../../styles/theme";
+import { useAppContext } from "../../context/Provider";
 
-export default function MinPlayer({ title, artist }) {
+export default function MinPlayer() {
+  const { playing, handlePlayPause, nowPlaying } = useAppContext();
+
   return (
     <Container>
-      <PlayBtn className="fas fa-play" />
+      <PlayBtn
+        className={playing ? "fas fa-pause" : "fas fa-play"}
+        onClick={handlePlayPause}
+      />
       <Info>
-        <Title>Dawn</Title>
-        <Artist>Toonorth</Artist>
+        <Title>{nowPlaying.title}</Title>
+        <Artist>{nowPlaying.artist}</Artist>
       </Info>
       <Time>2: 32</Time>
     </Container>
@@ -42,6 +48,7 @@ const PlayBtn = styled.button`
   justify-content: center;
   align-items: center;
   margin-right: 1rem;
+  cursor: pointer;
 `;
 
 const Info = styled.div`

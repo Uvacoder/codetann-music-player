@@ -6,6 +6,8 @@ import MinPlayer from "../MinPlayer/MinPlayer";
 // other imports
 import { color, text } from "../../styles/theme";
 import { songs } from "../../db/songs";
+// context
+import { useAppContext } from "../../context/Provider";
 
 export default function Menu() {
   const [currentTab, setCurrentTab] = useState("Library");
@@ -35,15 +37,16 @@ export default function Menu() {
 
       {/* Songs Section */}
       <Songs>
-        {songs.map((song) => (
-          <Song
-            key={song.id}
-            id={song.id}
-            img={song.img}
-            title={song.title}
-            artist={song.artist}
-          />
-        ))}
+        {currentTab === "Library" &&
+          songs.map((song) => (
+            <Song
+              key={song.id}
+              id={song.id}
+              img={song.img}
+              title={song.title}
+              artist={song.artist}
+            />
+          ))}
       </Songs>
       <MinPlayer />
     </Container>
@@ -71,7 +74,7 @@ const Header = styled.div`
 `;
 const ActiveTab = styled.p`
   color: ${color["100"]};
-  font-size: 22px;
+  font-size: 20px;
 
   margin-right: 2rem;
   cursor: pointer;

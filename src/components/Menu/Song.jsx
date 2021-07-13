@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { color, text } from "../../styles/theme";
-
+import { useAppContext } from "../../context/Provider";
 // TODO: add favorite button or options button
 
-export default function Song({ img, title, artist }) {
+export default function Song({ img, title, artist, id }) {
+  const { selectSong, nowPlaying } = useAppContext();
+
   return (
-    <Container>
+    <Container
+      nowPlaying={nowPlaying.id === id ? true : false}
+      onClick={() => selectSong(id)}
+    >
       <Artwork src={img} />
       <Info>
         <Title>{title}</Title>
@@ -24,6 +29,15 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  background: ${(props) => (props.nowPlaying ? "#23232e" : "none")};
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const Artwork = styled.img`

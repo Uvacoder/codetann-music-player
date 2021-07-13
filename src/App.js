@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
+
+import { useAppContext } from "./context/Provider";
+
 import { color } from "./styles/theme";
+import { songs } from "./db/songs";
 // components
 import Menu from "./components/Menu/Menu";
 // hooks
-import useWidth from "./hooks/useWidth";
+import usePlayer from "./hooks/usePlayer";
 
 function App() {
-  const width = useWidth();
-
   return (
     <Application>
       <Menu />
+      {/* <audio ref={audioRef} src={nowPlaying.url} /> */}
     </Application>
   );
 }
