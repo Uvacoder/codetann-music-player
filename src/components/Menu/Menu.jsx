@@ -47,6 +47,7 @@ export default function Menu() {
               artist={song.artist}
             />
           ))}
+        {currentTab === "Favorites" && <p>No Favorites found</p>}
       </Songs>
       <MinPlayer />
     </Container>
