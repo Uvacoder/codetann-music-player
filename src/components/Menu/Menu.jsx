@@ -6,9 +6,16 @@ import MinPlayer from "../MinPlayer/MinPlayer";
 // other imports
 import { color, text } from "../../styles/theme";
 import { songs } from "../../db/songs";
-// context
-import { useAppContext } from "../../context/Provider";
 
+/**
+ * <Menu />
+ * - Responsible for displaying all songs in the current library
+ * - The favorties tab shows the user their songs they have favorited
+ * - MinPlayer is only displayed on mobile. Desktop view will have the main player always in view
+ * ---
+ * TODO: add support for localstorage and the ability to favorite songs
+ * TODO: [MOBILE ONLY] add back arrow to allow users to return to the <Player /> component
+ */
 export default function Menu() {
   const [currentTab, setCurrentTab] = useState("Library");
 

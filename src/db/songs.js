@@ -1,3 +1,10 @@
+/**
+ * Songs are hard coded into the app.
+ * They are brought in from chillhop.com.
+ * I do not own the rights to these songs.
+ * This is purely for educational purposes.
+ */
+
 export const songs = [
   {
     artist: "Toonorth",

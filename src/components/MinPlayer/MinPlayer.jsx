@@ -3,6 +3,16 @@ import styled from "styled-components";
 import { color, text } from "../../styles/theme";
 import { useAppContext } from "../../context/Provider";
 
+/**
+ * <MinPlayer />
+ * - Only is shown on mobile devices.
+ * - Brings in data and functions from context to allow playing and pausing of song
+ * ---
+ * TODO: add current song time
+ * TODO: ? add skip function
+ * TODO: ? add bar that shows current progress
+ *
+ */
 export default function MinPlayer() {
   const { playing, handlePlayPause, nowPlaying } = useAppContext();
 

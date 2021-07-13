@@ -8,14 +8,21 @@ export const useAppContext = () => {
   return context;
 };
 
+/**
+ * <Provider />
+ * - Provider is exported and should only be used in index.js
+ * - The audio tag responsible for playing the song is located in the return statement
+ * - Functions proceeded by _ should only be used with in the context of the provider function (DO NO EXPOSE TO APP)
+ */
 export default function Provider({ children }) {
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
   const nowPlaying = songs[index];
   const audioRef = useRef(null);
 
+  // plays a new song anytime the song index is updated
   useEffect(() => {
-    play();
+    _play();
   }, [index]);
 
   // audio controlls
@@ -32,20 +39,20 @@ export default function Provider({ children }) {
     setIndex(i);
   };
 
-  const pause = () => {
+  const _pause = () => {
     audioRef.current.pause();
     setPlaying(false);
   };
-  const play = async () => {
+  const _play = async () => {
     await audioRef.current.play();
     setPlaying(true);
   };
   const handlePlayPause = () => {
     if (playing) {
-      pause();
+      _pause();
       setPlaying(false);
     } else {
-      play();
+      _play();
       setPlaying(true);
     }
   };

@@ -2,8 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { color, text } from "../../styles/theme";
 import { useAppContext } from "../../context/Provider";
-// TODO: add favorite button or options button
 
+/**
+ * <Song />
+ * - img, title, artist, and id are passed down via props from <Menu />
+ * - selectSong and nowPlaying functions are brought in via context
+ * ---
+ * TODO: add favorite button or options button
+ */
 export default function Song({ img, title, artist, id }) {
   const { selectSong, nowPlaying } = useAppContext();
 
